@@ -3,9 +3,9 @@
 ## Please DO NOT edit it.
 ## Copyright (C) 1986-2018 Xilinx, Inc. All Rights Reserved.
 ############################################################
-open_project signal_conditioning
+open_project -reset signal_conditioning
 set_top digital_conditioning
-add_files signal_conditioning/pre_process/pre_process.cpp
+add_files pre_process/pre_process.cpp
 open_solution "pre_process"
 set_part {xc7z020clg400-1} -tool vivado
 create_clock -period 10 -name default
