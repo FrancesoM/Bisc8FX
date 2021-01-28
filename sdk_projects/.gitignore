@@ -1,0 +1,8 @@
+*.o
+*.d
+*.a
+*.elf
+*.size
+
+/lib
+/Debug
