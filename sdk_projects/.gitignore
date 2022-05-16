@@ -5,6 +5,7 @@
 *.size
 .metadata/
 *.log
+*.analytics
 RemoteSystemsTempFiles/
 
 /lib
