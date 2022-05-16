@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER axis_gather_tdata
+	OPTION supported_peripherals = (axis_gather_tdata);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = axis_gather_tdata;
+END DRIVER
