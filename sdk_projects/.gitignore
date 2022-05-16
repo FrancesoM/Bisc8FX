@@ -3,6 +3,9 @@
 *.a
 *.elf
 *.size
+.metadata/
+*.log
+RemoteSystemsTempFiles/
 
 /lib
 /Debug
