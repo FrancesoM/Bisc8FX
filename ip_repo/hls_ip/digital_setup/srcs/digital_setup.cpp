@@ -88,47 +88,73 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "ap_axi_sdata.h"
-#include <hls_stream.h>
+#include "digital_setup.h"
 
-void digital_conditioning(
-      hls::stream< ap_axis<16,0,0,0> >& din,
-      hls::stream< ap_axis<16,0,0,0> >& dout,
-	  int offset_cal,
+#include "atan_lut_almost_linear.h"
+
+static ap_int<ACC_WIDTH>        s32_acc = 0;
+static ap_uint<HISTORY_LEN_BITS> idx = 0;
+static ap_uint<HISTORY_LEN_BITS> last_idx = 1; // It's basically 1 bwyond the current idx due to circular nature
+
+void digital_setup(
+      hls::stream< pkt_t >& din,
+      hls::stream< pkt_t >& dout,
 	  int gain        )
 {
 #pragma HLS INTERFACE axis port=dout
 #pragma HLS INTERFACE axis port=din
-#pragma HLS INTERFACE s_axilite port=offset_cal
 #pragma HLS INTERFACE s_axilite port=gain
 	// Assumption is that the ADC input is centered at 2048 thanks to analog conditioning
 
+	// We want to remove the DC offset and center the signal around zero, to do so use a moving average approach and we remove
+	// the average to each sample. This lifts us from the burden of selecting an arbitrary offset value.
+	static ap_int<DATA_WIDTH> as16_history[HISTORY_LEN];
+	#pragma HLS ARRAY_PARTITION variable=as16_history cyclic factor=2
+
 	//First we shift it and then we remove the average, meaning we output a signed val
-	unsigned short  in_rescaled;
-	short 			out_signed;
-	in_rescaled = (unsigned short) din.read().data;
+	ap_uint<DATA_WIDTH>  u16_adc_in;
 
-	// Rescale because the first 4 bits from ADC are not meaningful
-	in_rescaled = in_rescaled >> 4;
+	// We need a bigger precision data
+	// TODO: in theory we could have a custom datatype, 18bits should suffice
+	ap_int<ACC_WIDTH> s32_adc_in;
 
-	// Subtract the background level (offset from opamp) and obtain a zero centered signal
-	out_signed  = ((short)in_rescaled) - offset_cal;
+	int last_sample = 0;
 
-	// Here we can also pre amplify the signal by a factor of 2,4 ... then maybe we should make it configurable
-	// From experiments the signal dinamics are between 20 and 100,
-	// so we might be able to multiply by 10
-	// and still stay in the range -2048:+2047
+	process: do{
+#pragma HLS PIPELINE
+		pkt_t pkt_in = din.read();
+ 		u16_adc_in = pkt_in.data;
+		last_sample = pkt_in.last;
 
-	out_signed = out_signed*gain;
+		// Rescale because the first 4 bits from ADC are not meaningful
+		u16_adc_in = u16_adc_in >> 4;
 
-	//Clip the output, this should not occur anyway
-	out_signed = out_signed >= 2047 ? 2047 : out_signed;
-	out_signed = out_signed < -2047 ? -2047 : out_signed;
+		// update history and index. this is needed only to have the "last" value
+		as16_history[idx] = ap_int<DATA_WIDTH>(u16_adc_in);
 
-	ap_axis<16,0,0,0> out_signal;
-	out_signal.data = out_signed;
+		s32_acc = s32_acc + u16_adc_in - as16_history[last_idx];
 
-	dout.write(out_signal);
+		// Subtract the background level (offset from opamp) and obtain a zero centered signal
+		// This division ( for the average) needs to be an arithmetic shift... I hope it'll be
+		s32_adc_in  = ((ap_int<ACC_WIDTH>)u16_adc_in) - ( s32_acc >> HISTORY_LEN_BITS ) ;
+
+		s32_adc_in = s32_adc_in*gain;
+
+		// Why clipping at 12bits? The PWM will take care of a more gentle rescaling
+		// So clip at 16bits signed -> [ - 32768 : 32767 ]
+		s32_adc_in = s32_adc_in >= (ap_int<ACC_WIDTH>)(32767) ? (ap_int<ACC_WIDTH>)(32767)  : s32_adc_in;
+		s32_adc_in = s32_adc_in < (ap_int<ACC_WIDTH>)(-32768) ? (ap_int<ACC_WIDTH>)(-32768) : s32_adc_in;
+
+		ap_int<DATA_WIDTH> s16_armonized = atan_lut_almost_linear[unsigned( s32_adc_in + (1<<15) ) ];
+
+		ap_axis<DATA_WIDTH,0,0,0> out_signal;
+		out_signal.data = s16_armonized;
+
+		idx = (idx+1)&(HISTORY_LEN-1); //Modulo operation when D is power of 2; // Change this to shift modulo operation
+		last_idx = (last_idx+1)&(HISTORY_LEN-1); //Modulo operation when D is power of 2
+
+		dout.write(out_signal);
+	}while( last_sample == 0 );
 
 }
 
