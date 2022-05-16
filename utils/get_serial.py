@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 data_adc_regexp = re.compile(r"\d+\n")
 save_path = "raw_data"
 
-def read_all(port, chunk_size=200):
+def read_all(port, chunk_size=50):
     """Read all characters on the serial port and return them."""
     if not port.timeout:
         raise TypeError('Port needs to have a timeout set!')
@@ -82,7 +82,7 @@ plt.ion()
 
 
 
-with serial.Serial('COM5',baudrate=115200,timeout=3) as ser:  # open serial port
+with serial.Serial('COM5',baudrate=115200,timeout=7) as ser:  # open serial port
     print(ser.name)         # check which port was really used
     
 
@@ -102,14 +102,73 @@ with serial.Serial('COM5',baudrate=115200,timeout=3) as ser:  # open serial port
         #ser.timeout = 5
         #ser.write_timeout = 0.5
         while(analyze_data):
-                    
+            
+            
             action = input("""What to do?:\n
-                           'r' to receive new data \n
+                           'r' to receive new data (ADC only)\n
+                           'p' to receive new data (AXI Monitor)\n
                            's' to save the data\n
                            'q' to quit \n
                            """)
         
-            if action=="r":
+            if action=="p":
+                
+                rec = writep(ser)
+                
+                #uncomment if using two receive buffers
+                #n_shorts = len(rec)//2
+                #len_vectors = n_shorts//2
+                
+                #uncomment if using one receive buffer
+                n_shorts = len(rec)//2
+                N= n_shorts//2
+                
+                # > little endian
+                # {n_shorts} number of 2bytes received
+                # H unsigned short, h signed short
+                axis_tdata1 = struct.unpack("<{}h".format(N),rec[0:n_shorts])[2:-2]
+                axis_tdata2 = struct.unpack("<{}H".format(N),rec[n_shorts:2*n_shorts])[2:-2]
+                
+                debug=""
+                n="\n"
+                average = np.average(axis_tdata1)
+                debug+="Average = {}".format(average) + n
+                debug+="Max = {}".format(np.max(axis_tdata1))+n
+                gain = 150
+                offset = 1660 # those two numbers are from C program
+                adc = average/gain + offset 
+                debug+="Original estimate from ADC = {}".format(adc)+n
+                print(debug)
+
+                f_interest = 25000 #Hz
+                
+                N_trim = len(axis_tdata1)
+                T = N_trim/fs
+                freq = np.arange(N_trim)/T
+                
+                n_oneside = N_trim//2
+                f_oneside = freq[:n_oneside]
+                
+                figure, ( (ax1,ax2),(ax3,ax4) ) = plt.subplots(2, 2)
+                ax1.plot(axis_tdata1)  
+                ax3.plot(axis_tdata2)
+                
+                X1_n = np.fft.fft(axis_tdata1 - np.mean(axis_tdata1))
+                X2_n = np.fft.fft(axis_tdata2 - np.mean(axis_tdata2))
+                
+                
+                ax2.semilogx(f_oneside,abs(X1_n[:n_oneside])/N_trim)
+                ax4.semilogx(f_oneside,abs(X2_n[:n_oneside])/N_trim)
+                
+                analyze_data=0
+                
+                data_to_save = [axis_tdata1 ,axis_tdata2]
+                save_path = "debug_data"
+                
+                plt.draw()
+                plt.pause(0.2)
+                
+            elif action=="r":
                 
                 #send command to read
                 rec = writep(ser)
@@ -174,23 +233,32 @@ with serial.Serial('COM5',baudrate=115200,timeout=3) as ser:  # open serial port
                 l3, = ax3.semilogx(freq[0:max_point],abs(X_n[0:max_point])/len(X_n))
                 plt.draw()
                 plt.pause(0.2)
+                
+                data_to_save = [x_n_noACnoise]
+                save_path = "raw_data"
                           
                 
             
             elif action=="s":
                 
-                name = input("Insert the name: ")
-                if len(name)==0:
-                    name = "data{}.txt".format(next_number)
-                    next_number+=1
-                
                 print("saving..")
-                with open(os.path.join(save_path,name),"w") as fdata:
-                
-                    for x in x_n_noACnoise:
-                        fdata.write(str(int(x)))
-                        fdata.write("\n")
-                    print("done.")
+                for DATA in data_to_save:
+                    name = input("Insert the name: ")
+                    if len(name)!=0:
+                        
+                        #name = "data{}.txt".format(next_number)
+                        #next_number+=1
+                    
+                    
+                        with open(os.path.join(save_path,name),"w") as fdata:
+                        
+                            for x in DATA:
+                                fdata.write(str(int(x)))
+                                fdata.write("\n")
+                    else:
+                        print("Not saving..")
+                    
+                print("..done")
     
     
             else:

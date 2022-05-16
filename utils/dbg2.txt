@@ -1,0 +1,2800 @@
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050.    0.    0.]
+                yqueue = [1044.    0.    0.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050. 1050.    0.]
+                yqueue = [1044. 1044.    0.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050. 1050. 1200.]
+                yqueue = [1044. 1044. 1193.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 750. 1050. 1200.]
+                yqueue = [ 746. 1044. 1193.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 750. 1200. 1200.]
+                yqueue = [ 746. 1198. 1193.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 750. 1200.  750.]
+                yqueue = [ 746. 1198.  750.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 900. 1200.  750.]
+                yqueue = [ 904. 1198.  750.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 900. 1200.  750.]
+                yqueue = [ 904. 1205.  750.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 900. 1200.  900.]
+                yqueue = [ 904. 1205.  906.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050. 1200.  900.]
+                yqueue = [1058. 1205.  906.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050.  900.  900.]
+                yqueue = [1058.  910.  906.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050.  900. 1050.]
+                yqueue = [1058.  910. 1062.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 750.  900. 1050.]
+                yqueue = [ 765.  910. 1062.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 750. 1050. 1050.]
+                yqueue = [ 765. 1067. 1062.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 750. 1050. 1050.]
+                yqueue = [ 765. 1067. 1068.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 900. 1050. 1050.]
+                yqueue = [ 920. 1067. 1068.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 900. 1050. 1050.]
+                yqueue = [ 920. 1071. 1068.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 900. 1050.  900.]
+                yqueue = [ 920. 1071.  922.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 900. 1050.  900.]
+                yqueue = [ 924. 1071.  922.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [900. 900. 900.]
+                yqueue = [924. 926. 922.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [900. 900. 750.]
+                yqueue = [924. 926. 779.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050.  900.  750.]
+                yqueue = [1081.  926.  779.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050. 1050.  750.]
+                yqueue = [1081. 1081.  779.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050. 1050.  900.]
+                yqueue = [1081. 1081.  932.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 750. 1050.  900.]
+                yqueue = [ 784. 1081.  932.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [750. 900. 900.]
+                yqueue = [784. 936. 932.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [750. 900. 900.]
+                yqueue = [784. 936. 938.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [600. 900. 900.]
+                yqueue = [641. 936. 938.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [600. 900. 900.]
+                yqueue = [641. 944. 938.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [600. 900. 900.]
+                yqueue = [641. 944. 945.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050.  900.  900.]
+                yqueue = [1095.  944.  945.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050. 1200.  900.]
+                yqueue = [1095. 1244.  945.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050. 1200.  900.]
+                yqueue = [1095. 1244.  943.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 900. 1200.  900.]
+                yqueue = [ 944. 1244.  943.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [900. 750. 900.]
+                yqueue = [944. 796. 943.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [900. 750. 750.]
+                yqueue = [944. 796. 798.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [900. 750. 750.]
+                yqueue = [950. 796. 798.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [900. 750. 750.]
+                yqueue = [950. 802. 798.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [900. 750. 900.]
+                yqueue = [950. 802. 953.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [750. 750. 900.]
+                yqueue = [804. 802. 953.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 750. 1200.  900.]
+                yqueue = [ 804. 1254.  953.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 750. 1200.  900.]
+                yqueue = [ 804. 1254.  953.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 750. 1200.  900.]
+                yqueue = [ 804. 1254.  953.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 750. 1050.  900.]
+                yqueue = [ 804. 1104.  953.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 750. 1050. 1050.]
+                yqueue = [ 804. 1104. 1103.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1350. 1050. 1050.]
+                yqueue = [1400. 1104. 1103.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1350. 1050. 1050.]
+                yqueue = [1400. 1097. 1103.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1350. 1050.  900.]
+                yqueue = [1400. 1097.  946.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 900. 1050.  900.]
+                yqueue = [ 946. 1097.  946.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [900. 900. 900.]
+                yqueue = [946. 946. 946.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [900. 900. 600.]
+                yqueue = [946. 946. 648.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1200.  900.  600.]
+                yqueue = [1248.  946.  648.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1200.  900.  600.]
+                yqueue = [1248.  946.  648.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1200.  900.  750.]
+                yqueue = [1248.  946.  797.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050.  900.  750.]
+                yqueue = [1097.  946.  797.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050. 1050.  750.]
+                yqueue = [1097. 1095.  797.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050. 1050.  900.]
+                yqueue = [1097. 1095.  944.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 900. 1050.  900.]
+                yqueue = [ 944. 1095.  944.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 900. 1050.  900.]
+                yqueue = [ 944. 1093.  944.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 900. 1050. 1200.]
+                yqueue = [ 944. 1093. 1240.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050. 1050. 1200.]
+                yqueue = [1087. 1093. 1240.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050.  900. 1200.]
+                yqueue = [1087.  936. 1240.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050.  900. 1050.]
+                yqueue = [1087.  936. 1085.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050.  900. 1050.]
+                yqueue = [1083.  936. 1085.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050. 1200. 1050.]
+                yqueue = [1083. 1230. 1085.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050. 1200.  900.]
+                yqueue = [1083. 1230.  928.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 900. 1200.  900.]
+                yqueue = [ 927. 1230.  928.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [900. 900. 900.]
+                yqueue = [927. 926. 928.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [900. 900. 900.]
+                yqueue = [927. 926. 925.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [750. 900. 900.]
+                yqueue = [775. 926. 925.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [750. 750. 900.]
+                yqueue = [775. 776. 925.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 750.  750. 1200.]
+                yqueue = [ 775.  776. 1224.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 750.  750. 1200.]
+                yqueue = [ 772.  776. 1224.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 750.  600. 1200.]
+                yqueue = [ 772.  623. 1224.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 750.  600. 1050.]
+                yqueue = [ 772.  623. 1073.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 750.  600. 1050.]
+                yqueue = [ 772.  623. 1073.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 750.  900. 1050.]
+                yqueue = [ 772.  922. 1073.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [750. 900. 750.]
+                yqueue = [772. 922. 771.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050.  900.  750.]
+                yqueue = [1070.  922.  771.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050.  900.  750.]
+                yqueue = [1070.  918.  771.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050.  900.  900.]
+                yqueue = [1070.  918.  917.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050.  900.  900.]
+                yqueue = [1065.  918.  917.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050. 1200.  900.]
+                yqueue = [1065. 1211.  917.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050. 1200. 1200.]
+                yqueue = [1065. 1211. 1206.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 750. 1200. 1200.]
+                yqueue = [ 754. 1211. 1206.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 750. 1200. 1200.]
+                yqueue = [ 754. 1202. 1206.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 750. 1200. 1050.]
+                yqueue = [ 754. 1202. 1048.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 900. 1200. 1050.]
+                yqueue = [ 896. 1202. 1048.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 900. 1050. 1050.]
+                yqueue = [ 896. 1043. 1048.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 900. 1050. 1050.]
+                yqueue = [ 896. 1043. 1040.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [ 900. 1050. 1050.]
+                yqueue = [ 887. 1043. 1040.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [ 900. 1050. 1050.]
+                yqueue = [ 887. 1034. 1040.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [ 900. 1050. 1050.]
+                yqueue = [ 887. 1034. 1031.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050. 1050. 1050.]
+                yqueue = [1028. 1034. 1031.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050. 1050. 1050.]
+                yqueue = [1028. 1025. 1031.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050. 1050. 1200.]
+                yqueue = [1028. 1025. 1171.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1050. 1050. 1200.]
+                yqueue = [1017. 1025. 1171.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 1       
+                b0m = 1
+                b1m = 0
+                b2m = 2
+                
+                a0m = 0
+                a1m = 2
+                xqueue = [1050. 1200. 1200.]
+                yqueue = [1017. 1163. 1171.]
+
+
+            temp = int(b[0])*int(xqueue[1])+
+
+                   int(b[1])*int(xqueue[0])+
+
+                   int(b[2])*int(xqueue[2])-
+
+                   int(a[1])*int(yqueue[0])-
+
+                   int(a[2])*int(yqueue[2])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 2       
+                b0m = 2
+                b1m = 1
+                b2m = 0
+                
+                a0m = 1
+                a1m = 0
+                xqueue = [1050. 1200. 1200.]
+                yqueue = [1017. 1163. 1158.]
+
+
+            temp = int(b[0])*int(xqueue[2])+
+
+                   int(b[1])*int(xqueue[1])+
+
+                   int(b[2])*int(xqueue[0])-
+
+                   int(a[1])*int(yqueue[1])-
+
+                   int(a[2])*int(yqueue[0])+
+
+                   int(quant_err)
+
+ 
+                
+                a = [  65536 -130376   64843]
+                b [  65188 -130377   65188]
+            
+                q_idx = 0       
+                b0m = 0
+                b1m = 2
+                b2m = 1
+                
+                a0m = 2
+                a1m = 1
+                xqueue = [1350. 1200. 1200.]
+                yqueue = [1302. 1163. 1158.]
+
+
+            temp = int(b[0])*int(xqueue[0])+
+
+                   int(b[1])*int(xqueue[2])+
+
+                   int(b[2])*int(xqueue[1])-
+
+                   int(a[1])*int(yqueue[2])-
+
+                   int(a[2])*int(yqueue[1])+
+
+                   int(quant_err)
+
