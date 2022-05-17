@@ -6,10 +6,10 @@
 open_project pwm_scaling_prj
 set_top pwm_scaling
 add_files srcs/main.cpp
-open_solution "pwm_scaling_prj" -flow_target vivado
+open_solution "pwm_scaling_solution" -flow_target vivado
 set_part {xc7z020clg400-1}
 create_clock -period 10 -name default
-source ".pwm_scaling_prj/directives.tcl"
+source "./pwm_scaling_prj/directives.tcl"
 #csim_design
 csynth_design
 #cosim_design
