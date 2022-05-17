@@ -9,6 +9,7 @@ add_files srcs/main.cpp
 open_solution "pwm_scaling_solution" -flow_target vivado
 set_part {xc7z020clg400-1}
 create_clock -period 10 -name default
+config_export -format ip_catalog -rtl verilog -vivado_clock 10
 source "./pwm_scaling_prj/directives.tcl"
 #csim_design
 csynth_design
