@@ -17,6 +17,8 @@ build_project.bat # Or double click on this file
 vivado -mode batch -source build.tcl
 ```
 
+* If you want to open the HLS project, run Vitis HLS and open project at "IP NAME"/"IP_NAME_prj" 
+
 ## Usage
 
 You can run the Vitis project (which should already have the bitstream of a functioning image), load it to the Pynq board and connect the analog electronics. The board already has a 3mm jack output which I connect to the amp, but unfortunately there is no input jack, so I built a small circuit with an analog pre-amplifier and filtering stage, that is then sampled by the xADC in FPGA.

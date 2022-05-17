@@ -1,7 +1,9 @@
 #ifndef SATURATION_LUT_H
 #define SATURATION_LUT_H
 
-short atan_lut[65536] = { -32137,
+#include "ap_axi_sdata.h"
+
+ap_int<16> atan_lut_input[65536] = { -32137,
 		-32137,
 		-32137,
 		-32137,

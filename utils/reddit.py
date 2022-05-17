@@ -9,30 +9,36 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-def sat_16b_signed(x):
-    return ( math.atan(x/ ( (1<<15)/2)  ) ) * ( (1<<15)/1.2)
+def sat_16b_signed(x,steep):
+    return math.atan(x/( (1<<15) * (0.05 + 0.1*steep) ))   
 
-t = np.linspace(-(1<<15),(1<<15),50)
-y = np.array([ sat_16b_signed(y_i) for y_i in t  ])
+N = 4
+LUTs = []
 
-LUT = np.zeros((1<<16),dtype=int)
+for sig in range(N):
+    LUT = np.zeros((1<<16),dtype=float)
+    for i in range(LUT.shape[0]):
+        LUT[i] = sat_16b_signed( i - (1<<15) , sig)
+        
+    #rescale such that it's between -32k and +32k
+    LUT = (1<<16)*LUT/(np.max(LUT)-np.min(LUT))
+        
+    print(f"{sig} - max {np.max(LUT)} - min {np.min(LUT)}")
+    LUTs.append(LUT)
 
-for i in range(LUT.shape[0]):
-    LUT[i] = sat_16b_signed( i - (1<<15) )
 
-print("LUT has shape: ",LUT.shape)
 
-with open("atan_lut_almost_linear.h","w") as fd:
-    fd.write("#ifndef ATAN_LUT_H\n")
-    fd.write("#define ATAN_LUT_H\n")
-    fd.write("short atan_lut_almost_linear[{}] = {} {},\n".format(len(LUT),'{',int(LUT[0])))
-    for x in LUT[1:-1]:
-        fd.write("\t\t")
-        fd.write(str(int(x))+",\n")
-    fd.write("{} {};\n".format(int(LUT[-1]),'}'))
-    fd.write("#endif")
-
-#plt.plot(t,y)
-
-plt.plot(np.arange(0,LUT.shape[0],dtype=int),LUT)
-
+for i in range(N):
+    plt.plot(np.arange(0,LUTs[i].shape[0],dtype=int),LUTs[i])
+    
+    
+    with open(f"atan_lut_steep_{i}.h","w") as fd:
+        fd.write(f"#ifndef ATAN_LUT_{i}_H\n")
+        fd.write(f"#define ATAN_LUT_{i}_H\n")
+        fd.write("#include <ap_axi_sdata.h>\n")
+        fd.write("ap_int<16>  atan_lut_steep_{}[{}] = {} {},\n".format(i,len(LUT),'{',int(LUT[0])))
+        for x in LUT[1:-1]:
+            fd.write("\t\t")
+            fd.write(str(int(x))+",\n")
+        fd.write("{} {};\n".format(int(LUT[-1]),'}'))
+        fd.write("#endif")

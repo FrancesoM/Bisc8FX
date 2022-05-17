@@ -88,30 +88,34 @@ THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE AT
 ALL TIMES.
 
 *******************************************************************************/
-#include "ap_axi_sdata.h"
-#include <hls_stream.h>
-
-#include "saturation_lut.h"
-
-#define HISTORY_LEN 512
-#define HISTORY_LEN_BITS 9
+#include "atan_saturation.h"
 
 void atan_saturation(
-      hls::stream< ap_axis<16,0,0,0> >& din,
-      hls::stream< ap_axis<16,0,0,0> >& dout,
+	      hls::stream< pkt_t >& din,
+	      hls::stream< pkt_t >& dout,
+	  ap_int<16> atan_lut_memory[65536],
 	  int active_saturation)
 {
+#pragma HLS INTERFACE mode=bram port=atan_lut_memory
 #pragma HLS INTERFACE axis port=dout
 #pragma HLS INTERFACE axis port=din
 #pragma HLS INTERFACE s_axilite port=active_saturation
 
 	ap_axis<16,0,0,0> out_signal;
 
+	int last_in;
+	ap_int<16> data_in;
+
 	saturation: do{
-#pragma HLS PIPELINE
+#pragma HLS PIPELINE II=2
+
+		pkt_t pkt_in       = din.read();
+ 		data_in = pkt_in.data;
+		last_in = pkt_in.last;
+
 		if ( active_saturation )
 		{
-			out_signal.data = atan_lut[(unsigned short)((short)din.read().data + (1<<15)) ];
+			out_signal.data = atan_lut_memory[ap_uint<16>(data_in + (1<<15)) ];
 		}else
 		{
 			out_signal.data = din.read().data;
@@ -119,7 +123,7 @@ void atan_saturation(
 
 
 		dout.write(out_signal);
-	}while(1);
+	}while( last_in == 0);
 
 }
 

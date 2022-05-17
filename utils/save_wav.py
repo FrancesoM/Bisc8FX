@@ -204,14 +204,14 @@ def hls_filter_Q_model(b,a,x,fixed=True,n_bits=16,do_debug=True):
 
 path_in = "raw_data"
 path_out = "wav_files"
-name = "digital_setup_out.dat"
+name = "saturation_lut_0_out.dat"
 name2 = None
 out_name = name
 
 do_ac_filter=0
 do_filter=1
 do_saturate=0
-built_in_filter=0
+built_in_filter=1
 
 do_write = 1
 
