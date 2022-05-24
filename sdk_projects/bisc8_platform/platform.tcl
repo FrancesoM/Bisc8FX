@@ -41,3 +41,30 @@ platform config -updatehw {C:/Users/francesco.maio/Desktop/Bisc8FX/sdk_projects/
 platform generate
 platform clean
 platform clean
+platform active {bisc8_platform}
+platform config -updatehw {C:/Users/francesco.maio/Desktop/Bisc8FX/sdk_projects/xsa/Bisc8FX_220518.xsa}
+platform generate
+platform config -updatehw {C:/Users/francesco.maio/Desktop/Bisc8FX/sdk_projects/xsa/Bisc8FX_220518.xsa}
+platform clean
+platform generate
+bsp reload
+platform generate -domains 
+platform clean
+platform config -updatehw {C:/Users/francesco.maio/Desktop/Bisc8FX/sdk_projects/xsa/Bisc8FX_220519.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/francesco.maio/Desktop/Bisc8FX/sdk_projects/xsa/Bisc8FX_220518_2124.xsa}
+platform generate
+platform clean
+platform generate
+platform generate -domains standalone_domain,zynq_fsbl 
+platform clean
+platform active {bisc8_platform}
+platform config -updatehw {C:/Users/francesco.maio/Desktop/Bisc8FX/vivado_projects/dsp_chain_project/Bisc8FX/top_wrapper.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/francesco.maio/Desktop/Bisc8FX/vivado_projects/dsp_chain_project/Bisc8FX/top_wrapper.xsa}
+platform generate
+platform clean
+platform config -updatehw {C:/Users/francesco.maio/Desktop/Bisc8FX/vivado_projects/dsp_chain_project/Bisc8FX/top_wrapper.xsa}
+platform generate

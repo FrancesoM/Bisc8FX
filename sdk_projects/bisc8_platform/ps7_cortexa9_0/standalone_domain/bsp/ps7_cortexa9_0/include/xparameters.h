@@ -72,6 +72,49 @@
 
 /******************************************************************/
 
+/* Definitions for driver BRAM */
+#define XPAR_XBRAM_NUM_INSTANCES 1U
+
+/* Definitions for peripheral AXI_BRAM_CTRL_0 */
+#define XPAR_AXI_BRAM_CTRL_0_DEVICE_ID 0U
+#define XPAR_AXI_BRAM_CTRL_0_DATA_WIDTH 32U
+#define XPAR_AXI_BRAM_CTRL_0_ECC 0U
+#define XPAR_AXI_BRAM_CTRL_0_FAULT_INJECT 0U
+#define XPAR_AXI_BRAM_CTRL_0_CE_FAILING_REGISTERS 0U
+#define XPAR_AXI_BRAM_CTRL_0_UE_FAILING_REGISTERS 0U
+#define XPAR_AXI_BRAM_CTRL_0_ECC_STATUS_REGISTERS 0U
+#define XPAR_AXI_BRAM_CTRL_0_CE_COUNTER_WIDTH 0U
+#define XPAR_AXI_BRAM_CTRL_0_ECC_ONOFF_REGISTER 0U
+#define XPAR_AXI_BRAM_CTRL_0_ECC_ONOFF_RESET_VALUE 0U
+#define XPAR_AXI_BRAM_CTRL_0_WRITE_ACCESS 0U
+#define XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR 0x44100000U
+#define XPAR_AXI_BRAM_CTRL_0_S_AXI_HIGHADDR 0x4411FFFFU
+#define XPAR_AXI_BRAM_CTRL_0_S_AXI_CTRL_BASEADDR 0xFFFFFFFFU  
+#define XPAR_AXI_BRAM_CTRL_0_S_AXI_CTRL_HIGHADDR 0xFFFFFFFFU  
+
+
+/******************************************************************/
+
+/* Canonical definitions for peripheral AXI_BRAM_CTRL_0 */
+#define XPAR_BRAM_0_DEVICE_ID XPAR_AXI_BRAM_CTRL_0_DEVICE_ID
+#define XPAR_BRAM_0_DATA_WIDTH 32U
+#define XPAR_BRAM_0_ECC 0U
+#define XPAR_BRAM_0_FAULT_INJECT 0U
+#define XPAR_BRAM_0_CE_FAILING_REGISTERS 0U
+#define XPAR_BRAM_0_UE_FAILING_REGISTERS 0U
+#define XPAR_BRAM_0_ECC_STATUS_REGISTERS 0U
+#define XPAR_BRAM_0_CE_COUNTER_WIDTH 0U
+#define XPAR_BRAM_0_ECC_ONOFF_REGISTER 0U
+#define XPAR_BRAM_0_ECC_ONOFF_RESET_VALUE 0U
+#define XPAR_BRAM_0_WRITE_ACCESS 0U
+#define XPAR_BRAM_0_BASEADDR 0x44100000U
+#define XPAR_BRAM_0_HIGHADDR 0x4411FFFFU
+#define XPAR_BRAM_0_CTRL_BASEADDR 0xFFFFFFFFU  
+#define XPAR_BRAM_0_CTRL_HIGHADDR 0xFFFFFFFEU  
+
+
+/******************************************************************/
+
 
 /* Definitions for peripheral PS7_DDR_0 */
 #define XPAR_PS7_DDR_0_S_AXI_BASEADDR 0x00100000
@@ -95,25 +138,6 @@
 #define XPAR_XDCFG_0_DEVICE_ID XPAR_PS7_DEV_CFG_0_DEVICE_ID
 #define XPAR_XDCFG_0_BASEADDR 0xF8007000U
 #define XPAR_XDCFG_0_HIGHADDR 0xF80070FFU
-
-
-/******************************************************************/
-
-/* Definitions for driver DIGITAL_SETUP */
-#define XPAR_XDIGITAL_SETUP_NUM_INSTANCES 1
-
-/* Definitions for peripheral DIGITAL_SETUP_0 */
-#define XPAR_DIGITAL_SETUP_0_DEVICE_ID 0
-#define XPAR_DIGITAL_SETUP_0_S_AXI_CONTROL_BASEADDR 0x40010000
-#define XPAR_DIGITAL_SETUP_0_S_AXI_CONTROL_HIGHADDR 0x4001FFFF
-
-
-/******************************************************************/
-
-/* Canonical definitions for peripheral DIGITAL_SETUP_0 */
-#define XPAR_XDIGITAL_SETUP_0_DEVICE_ID XPAR_DIGITAL_SETUP_0_DEVICE_ID
-#define XPAR_XDIGITAL_SETUP_0_S_AXI_CONTROL_BASEADDR 0x40010000
-#define XPAR_XDIGITAL_SETUP_0_S_AXI_CONTROL_HIGHADDR 0x4001FFFF
 
 
 /******************************************************************/
