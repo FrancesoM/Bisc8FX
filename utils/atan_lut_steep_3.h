@@ -1,7 +1,6 @@
 #ifndef ATAN_LUT_3_H
 #define ATAN_LUT_3_H
-#include <ap_axi_sdata.h>
-ap_int<16>  atan_lut_steep_3[65536] = { -32768,
+short  atan_lut_steep_3[65536] = { -32768,
 		-32767,
 		-32767,
 		-32767,

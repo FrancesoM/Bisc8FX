@@ -120,6 +120,7 @@ with serial.Serial('COM5',baudrate=115200,timeout=7) as ser:  # open serial port
                 #len_vectors = n_shorts//2
                 
                 #uncomment if using one receive buffer
+                rec = rec[:-3]
                 n_shorts = len(rec)//2
                 N= n_shorts//2
                 

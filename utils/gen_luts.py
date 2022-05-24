@@ -8,6 +8,7 @@ Created on Wed Feb 10 17:17:18 2021
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+import io_helpers
 
 def sat_16b_signed(x,steep):
     return math.atan(x/( (1<<15) * (0.05 + 0.1*steep) ))   
@@ -31,14 +32,18 @@ for sig in range(N):
 for i in range(N):
     plt.plot(np.arange(0,LUTs[i].shape[0],dtype=int),LUTs[i])
     
-    
-    with open(f"atan_lut_steep_{i}.h","w") as fd:
+    # Create the header
+    fname = f"atan_lut_steep_{i}"
+    with open(fname+".h","w") as fd:
         fd.write(f"#ifndef ATAN_LUT_{i}_H\n")
         fd.write(f"#define ATAN_LUT_{i}_H\n")
-        fd.write("#include <ap_axi_sdata.h>\n")
-        fd.write("ap_int<16>  atan_lut_steep_{}[{}] = {} {},\n".format(i,len(LUT),'{',int(LUT[0])))
-        for x in LUT[1:-1]:
+        fd.write("short  atan_lut_steep_{}[{}] = {} {},\n".format(i,len(LUTs[0]),'{',int(LUTs[0][0])))
+        for x in LUTs[i][1:-1]:
             fd.write("\t\t")
             fd.write(str(int(x))+",\n")
         fd.write("{} {};\n".format(int(LUT[-1]),'}'))
         fd.write("#endif")
+
+    # Create the .COE file for BRAM initialization from vivado
+    
+    io_helpers.wcoe_file(LUTs[i],".",fname,pack_elements=1)
