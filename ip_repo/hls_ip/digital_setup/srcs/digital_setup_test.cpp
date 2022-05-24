@@ -43,7 +43,7 @@ int main() {
   */
 
   FILE *fp;
-  fp=fopen("../../../../../../utils/raw_data/adc_stream_capture.dat","r");
+  fp=fopen("../../../../../../../utils/raw_data/adc_stream_capture.dat","r");
 
   if( fp == NULL)
   {
@@ -65,11 +65,12 @@ int main() {
 
   fclose(fp);
 
-  digital_setup(inStream,outStream,100);
+  int gain = 100;
+  digital_setup(inStream,outStream);
 
   printf("\n Reading output stream..\n");
 
-  fp=fopen("../../../../../../utils/raw_data/digital_setup_out.dat","w");
+  fp=fopen("../../../../../../../utils/raw_data/digital_setup_out.dat","w");
 
   if( fp == NULL)
   {

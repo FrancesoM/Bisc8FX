@@ -96,7 +96,7 @@ void atan_saturation(
 	  ap_int<16> atan_lut_memory[65536],
 	  int active_saturation)
 {
-#pragma HLS INTERFACE mode=bram port=atan_lut_memory
+#pragma HLS INTERFACE mode=ap_memory depth=65536 port=atan_lut_memory
 #pragma HLS INTERFACE axis port=dout
 #pragma HLS INTERFACE axis port=din
 #pragma HLS INTERFACE s_axilite port=active_saturation

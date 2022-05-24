@@ -16,7 +16,6 @@ typedef ap_axis<DATA_WIDTH, 0, 0, 0> pkt_t;
 
 void digital_setup(
       hls::stream< pkt_t >& din,
-      hls::stream< pkt_t >& dout,
-	  int gain        );
+      hls::stream< pkt_t >& dout);
 
 #endif

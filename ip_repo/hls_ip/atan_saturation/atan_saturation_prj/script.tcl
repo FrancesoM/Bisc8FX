@@ -5,8 +5,10 @@
 ############################################################
 open_project atan_saturation_prj
 set_top atan_saturation
-add_files srcs/saturation_lut.h
+add_files srcs/atan_lut_steep_0.h
+add_files srcs/atan_lut_steep_3.h
 add_files srcs/main.cpp
+add_files -tb srcs/atan_saturation_test.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "atan_saturation_solution" -flow_target vivado
 set_part {xc7z020-clg400-1}
 create_clock -period 10 -name default
