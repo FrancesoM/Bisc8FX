@@ -66,11 +66,16 @@ int main() {
   fclose(fp);
 
   int gain = 100;
-  digital_setup(inStream,outStream);
+
+
+  while( !inStream.empty() )
+  {
+	  digital_setup(inStream,outStream,250);
+  }
 
   printf("\n Reading output stream..\n");
 
-  fp=fopen("../../../../../../../utils/raw_data/digital_setup_out.dat","w");
+  fp=fopen("../../../../../../../utils/raw_data/digital_setup_C_sim.dat","w");
 
   if( fp == NULL)
   {

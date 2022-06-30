@@ -117,6 +117,7 @@ architecture arch_imp of stream_monitor_v1_0 is
 	
 	signal b_begin_pre_r : std_logic;
 	signal b_begin_r : std_logic;
+	signal b_tlast_r : std_logic;
 
 begin
 
@@ -166,6 +167,7 @@ stream_monitor_v1_0_S00_AXI_inst : stream_monitor_v1_0_S00_AXI
 	      state <= IDLE;
 	      b_begin_pre_r <= '0';
 	      b_begin_r <= '0';
+	      b_tlast_r <= '0';
 	      
 	    else
 	    
@@ -175,7 +177,9 @@ stream_monitor_v1_0_S00_AXI_inst : stream_monitor_v1_0_S00_AXI
 	           
 	           b_begin_r     <= b32_ctrl_reg(0);
 	           b_begin_pre_r <= b_begin_r;
-	           
+	           b_collected_data_r <= '0';
+	           b_tlast_r <= '0';
+
 	           if ( (b_begin_r = '1') xor (b_begin_pre_r = '1') ) then
 	               state <= CAPTURE;
 	           end if;
@@ -183,25 +187,27 @@ stream_monitor_v1_0_S00_AXI_inst : stream_monitor_v1_0_S00_AXI
 	       when CAPTURE => 
 	    
               -- Monitor has found a valid transaction - we need to push it out
-              if ( s00_axis_tvalid = '1' and s00_axis_tready = '1' ) then  
-                -- Push it out only if slave downstream is ready - which should happen if DMA is configured correctly. 
-                -- If this does not happen, data is lost. 
-                if ( m00_axis_tready = '1' ) then
-                    b16_data_r <= s00_axis_tdata;
-                    b_collected_data_r <= '1';
-                    
-                    if ( i_transaction_count < to_integer(unsigned(b32_transaction_count_max)) ) then 
-                        i_transaction_count <= 0;
-                        state <= IDLE;
-                    else
-                        i_transaction_count <= i_transaction_count+1;
-                    end if;
-                    
+              if ( s00_axis_tvalid = '1' and s00_axis_tready = '1' and m00_axis_tready = '1' ) then  
+
+				b16_data_r <= s00_axis_tdata;
+				b_collected_data_r <= '1';     
+
+				-- Increase counter
+                if ( i_transaction_count = ( to_integer(unsigned(b32_transaction_count_max)) ) ) then 
+                    i_transaction_count <= 0;
+                    state <= IDLE;
                 else
-                    b_collected_data_r <= '0';
-                end if; 
+                	if ( i_transaction_count = ( to_integer(unsigned(b32_transaction_count_max)) - 1 ) ) then
+                    	b_tlast_r <= '1';
+                    else
+                    	b_tlast_r <= '0';
+                	end if;
+                    i_transaction_count <= i_transaction_count+1;
+                end if;
+                    
               else
                 b_collected_data_r <= '0';
+                b_tlast_r <= '0';
               end if; 
           
           end case; 
@@ -214,7 +220,7 @@ stream_monitor_v1_0_S00_AXI_inst : stream_monitor_v1_0_S00_AXI
     m00_axis_tvalid	<= '0' when state = IDLE else b_collected_data_r;
 	m00_axis_tdata	<= b16_data_r;
 	m00_axis_tstrb	<= (others => '1');
-	m00_axis_tlast  <= '1' when i_transaction_count = (to_integer(unsigned(b32_transaction_count_max))-1) else '0';
+	m00_axis_tlast  <= b_tlast_r;
     
     
 	-- User logic ends

@@ -106,7 +106,7 @@ void atan_saturation(
 	int last_in;
 	ap_int<16> data_in;
 
-	saturation: do{
+	//saturation: do{
 #pragma HLS PIPELINE II=2
 
 		pkt_t pkt_in       = din.read();
@@ -118,12 +118,12 @@ void atan_saturation(
 			out_signal.data = atan_lut_memory[ap_uint<16>(data_in + (1<<15)) ];
 		}else
 		{
-			out_signal.data = din.read().data;
+			out_signal.data = data_in;
 		}
 
 
 		dout.write(out_signal);
-	}while( last_in == 0);
+	//}while( last_in == 0);
 
 }
 

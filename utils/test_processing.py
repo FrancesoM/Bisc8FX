@@ -19,24 +19,32 @@ import dsp_helpers
 
 path_in = "raw_data"
 path_out = "wav_files"
-name = "digital_setup_out.dat"
-out_name = name
+
+xname = "monitor0.bin"
+yname = "monitor1.bin"
+
+out_name = xname
 
 do_ac_filter=0
 do_filter=0
-do_saturate=0
+do_saturate=1
 built_in_filter=0
 
-do_write = 1
+do_write = 0
 
 fs = 41810
 
-LUT = io_helpers.open_decimal(".","LUT_sat_16b_signed")
+LUT = io_helpers.open_decimal(".","atan_lut_steep_1.dat")
 
-data = io_helpers.open_decimal(path_in,name,dtype=float)
+x = io_helpers.data_file(path_in, xname, 16, True).open()
+#y = io_helpers.data_file(path_in, yname, 16, True).open()
 
-    
-xn = np.asarray(data,dtype=np.float64) #- np.mean(data)
+xn = x[512:] 
+xn = xn - xn.mean()
+#yn = y[512:]
+
+io_helpers.listen_wave(x,fs)
+
 #xn = xn[50000:]
 print(xn)
 print(xn.shape)
@@ -53,7 +61,7 @@ y=xn
 
 if do_saturate:
 
-    y = dsp_helpers.applyLUT(y,LUT)
+    y = dsp_helpers.apply_lut(y,LUT)
     
     out_name += "_saturated_"
 
@@ -72,6 +80,7 @@ if do_ac_filter:
     y = signal.filtfilt(bp,ap,y)
     out_name+="_noAC_"
     
+io_helpers.listen_wave(y,fs)
 
 X, txx, Zxx = signal.stft(xn, fs, nperseg=4096)
 Y, tyy, Zyy   = signal.stft(y, fs, nperseg=4096)
@@ -80,31 +89,54 @@ freq = np.fft.fftfreq(len(xn))*fs
 
 # Harsh downsample by 4 for displaying purposes
 
-assert Zxx.shape == Zyy.shape
-print( "Assertion passed ")
+DS_factor =4
+F_interest = 0.25 # interested in frequencies from 0 to 25% fsample
 
-DS_factor = 4
+# downsample X
+xfreq_size = int(X.shape[0]*F_interest)
+xtime_size = txx.shape[0]
 
-freq_size = X.shape[0]
-time_size = txx.shape[0]
+xfreq_size_ds = xfreq_size//DS_factor 
+xtime_size_ds = xtime_size//DS_factor 
 
-freq_size_ds = freq_size//DS_factor + 1
-time_size_ds = time_size//DS_factor + 1 
+Zxx_ds=np.zeros((xfreq_size_ds,xtime_size_ds),dtype=complex)
 
-Zxx_ds=np.zeros((freq_size_ds,time_size_ds),dtype=complex)
-Zyy_ds=np.zeros((freq_size_ds,time_size_ds),dtype=complex)
-
-for f in range(freq_size-1):
-    for t in range(time_size-1):
+for f in range(xfreq_size-1):
+    for t in range(xtime_size-1):
         if f%DS_factor==0 and t%DS_factor==0:
             Zxx_ds[f//DS_factor,t//DS_factor] = Zxx[f,t]
+
+X_ds   = []
+for i in range(xfreq_size_ds):
+    X_ds.append(X[i*DS_factor])
+
+txx_ds = []
+for i in range(xtime_size_ds):
+    txx_ds.append(txx[i*DS_factor])
+
+
+
+# downsample Y
+yfreq_size = int(Y.shape[0]*F_interest)
+ytime_size = tyy.shape[0]
+
+yfreq_size_ds = yfreq_size//DS_factor 
+ytime_size_ds = ytime_size//DS_factor 
+
+Zyy_ds=np.zeros((yfreq_size_ds,ytime_size_ds),dtype=complex)
+
+for f in range(yfreq_size-1):
+    for t in range(ytime_size-1):
+        if f%DS_factor==0 and t%DS_factor==0:
             Zyy_ds[f//DS_factor,t//DS_factor] = Zyy[f,t]
 
-X_ds   = np.array( [ x for i,x in enumerate(X) if i%DS_factor==0 ]  )
-txx_ds = np.array( [ x for i,x in enumerate(txx) if i%DS_factor==0 ]  )
-        
-Y_ds   = np.array( [ x for i,x in enumerate(Y) if i%DS_factor==0 ]  )
-tyy_ds = np.array( [ x for i,x in enumerate(tyy) if i%DS_factor==0 ]  )
+Y_ds   = []
+for i in range(yfreq_size_ds):
+    Y_ds.append(Y[i*DS_factor])
+
+tyy_ds = []
+for i in range(ytime_size_ds):
+    tyy_ds.append(tyy[i*DS_factor])
 
 #%%
 plt.subplot(221)

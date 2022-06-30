@@ -18,20 +18,33 @@ import dsp_helpers
 
 
 path_in = "raw_data"
-name1 = "digital_setup_out.dat"
-name2 = "digital_setup_out_vivado.mem"
 
-fs = 42000
+
+fs = 41810
 
 LUT = io_helpers.open_decimal(".","LUT_sat_16b_signed")
 
-#x = io_helpers.open_decimal(path_in,name1,dtype=float)[512:5000]
-#y = io_helpers.rmem(path_in,name2,16,1,dtype=float)[512:5000]
+check_vitis = 0
+check_vivado = 1
+#
 
-x,y = io_helpers.rvitis_memdump(path_in,"acq2.bin",f1="h",f2="h")
+name2 = "atan_saturation_{}.{}"
+name1 = "digital_setup_{}.{}"
 
-x = x[1:]
-y = y[1:]
+#x = io_helpers.data_file(path_in, name1.format( "C_sim" , "dat"  ) , 16, True).open()
+#y = io_helpers.data_file(path_in, name1.format( "rtl"   , "mem"  ), 16, True).open()
+
+xname = "monitor0.bin"
+yname = "monitor1.bin"
+
+x = io_helpers.data_file(path_in, xname, 16, True).open()
+y = io_helpers.data_file(path_in, yname, 16, True).open()
+
+x = x[512:]
+y = y[512:]
+
+#io_helpers.listen_wave(x,fs)
+#io_helpers.listen_wave(y,fs)
 
 X, txx, Zxx = signal.stft(x, fs, nperseg=2048)
 Y, tyy, Zyy   = signal.stft(y, fs, nperseg=2048)
@@ -41,8 +54,8 @@ freq = np.fft.fftfreq(len(x))*fs
 # Harsh downsample by 4 for displaying purposes
 
 
-DS_factor = 1
-F_interest = 0.25 # interested in frequencies from 0 to 50% fsample
+DS_factor =1
+F_interest = 0.25 # interested in frequencies from 0 to 25% fsample
 
 # downsample X
 xfreq_size = int(X.shape[0]*F_interest)
@@ -91,6 +104,7 @@ for i in range(ytime_size_ds):
     tyy_ds.append(tyy[i*DS_factor])
 
 #%%
+plt.figure()
 plt.subplot(221)
 #plt.plot(xn[:500],'r',y[:500],'b')
 plt.plot(x)

@@ -56,6 +56,7 @@
 #include "xdigital_setup.h"
 #include "xil_cache.h"
 #include "xatan_saturation.h"
+#include "stream_monitor.h"
 
 #include "xbram.h"
 #include "atan_lut_steep_0.h"
@@ -67,8 +68,11 @@
 
 #define FS_HZ (41810.0f)
 
-__attribute__((section(".debug_axis0"))) unsigned int debug_axis0[N_SAMPLES];
-__attribute__((section(".debug_axis1"))) unsigned int debug_axis1[N_SAMPLES];
+
+// Accomodate 20 seconds of recording at 16bits per 42kHz
+#define NSAMPLES (20*42000*2)
+__attribute__((section(".debug_axis0"))) unsigned char debug_axis0[NSAMPLES];
+__attribute__((section(".debug_axis1"))) unsigned char debug_axis1[NSAMPLES];
 
 // Processing IPs
 XPwm_scaling pwmScal;
@@ -86,6 +90,7 @@ int init_dma(XAxiDma* p_dma_inst, int dma_device_id)
 {
 
 	XAxiDma_Config* cfg_ptr;
+	int status;
 
 	cfg_ptr = XAxiDma_LookupConfig(dma_device_id);
 	if (!cfg_ptr)
@@ -105,7 +110,7 @@ int init_dma(XAxiDma* p_dma_inst, int dma_device_id)
 	if (XAxiDma_HasSg(p_dma_inst))
 	{
 		xil_printf("ERROR! Device configured as SG mode.\r\n");
-		return DMA_PASSTHROUGH_DMA_INIT_FAIL;
+		return -1;
 	}
 
 	// Disable interrupts for both channels
@@ -209,6 +214,7 @@ void acquire_data_blocking()
 {
 
     int start_flag;
+	XTime tEnd, tCur;
 
 	// How many samples to capture
 	float seconds_to_acquire = 10.0f;
@@ -236,7 +242,9 @@ void acquire_data_blocking()
     sleep(1);
     xil_printf(" 1 \n");
     sleep(1);
-	xil_printf("Acquiring data...");
+	xil_printf("Acquiring %d bytes to 0x%x and 0x%x...\n",bytes_to_acquire,debug_axis0,debug_axis1);
+
+	XTime_GetTime(&tCur);
 
 	// Launch the stream monitor - This will begin the valid transaction and put tlast after "samples_to_acquire" transactions
 	int flag0 = STREAM_MONITOR_mReadReg(XPAR_STREAM_MONITOR_0_S00_AXI_BASEADDR,4);
@@ -254,8 +262,6 @@ void acquire_data_blocking()
 								4,
 								flag1);
 
-	XTime tEnd, tCur;
-
 	// And now we wait for the DMA to finish - This should last the same seconds we have defined before
 	dma_wait_completion(&dma0);
 	dma_wait_completion(&dma1);
@@ -267,6 +273,14 @@ void acquire_data_blocking()
 	float seconds = (float)(tEnd - tCur) / (float) COUNTS_PER_SECOND;
 
 	xil_printf("Acquisition done : %d seconds \n\n",(int)seconds);
+
+	xil_printf("First 10 samples monitor 0: \n");
+	for (int k = 0; k < 10 ; k++)
+	{
+		xil_printf(" %d - ", *( ( (short*)debug_axis0) + k ));
+	}
+
+	xil_printf("\n");
 }
 
 void set_gain_blocking()

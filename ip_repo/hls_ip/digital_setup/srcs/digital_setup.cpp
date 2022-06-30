@@ -98,8 +98,10 @@ static ap_uint<HISTORY_LEN_BITS> last_idx = 1; // It's basically 1 bwyond the cu
 
 void digital_setup(
       hls::stream< pkt_t >& din,
-      hls::stream< pkt_t >& dout)
+      hls::stream< pkt_t >& dout,
+	  int gain)
 {
+#pragma HLS INTERFACE mode=s_axilite port=gain
 #pragma HLS INTERFACE axis port=dout
 #pragma HLS INTERFACE axis port=din
 	// Assumption is that the ADC input is centered at 2048 thanks to analog conditioning
@@ -118,7 +120,6 @@ void digital_setup(
 
 	int last_sample = 0;
 
-	process: do{
 #pragma HLS PIPELINE
 		pkt_t pkt_in = din.read();
  		u16_adc_in = pkt_in.data;
@@ -136,7 +137,7 @@ void digital_setup(
 		// This division ( for the average) needs to be an arithmetic shift... I hope it'll be
 		s32_adc_in  = ((ap_int<ACC_WIDTH>)u16_adc_in) - ( s32_acc >> HISTORY_LEN_BITS ) ;
 
-		s32_adc_in = s32_adc_in*250;
+		s32_adc_in = s32_adc_in*gain;
 
 		// Why clipping at 12bits? The PWM will take care of a more gentle rescaling
 		// So clip at 16bits signed -> [ - 32768 : 32767 ]
@@ -152,7 +153,6 @@ void digital_setup(
 		last_idx = (last_idx+1)&(HISTORY_LEN-1); //Modulo operation when D is power of 2
 
 		dout.write(out_signal);
-	}while( last_sample == 0 );
 
 }
 

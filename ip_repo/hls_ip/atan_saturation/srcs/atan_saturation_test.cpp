@@ -49,7 +49,7 @@ int main() {
   // First run
 
   FILE *fp;
-  fp=fopen("../../../../../../../utils/raw_data/digital_setup_out.dat","r");
+  fp=fopen("../../../../../../../utils/raw_data/digital_setup_C_sim.dat","r");
 
   if( fp == NULL)
   {
@@ -71,15 +71,19 @@ int main() {
 
   fclose(fp);
 
-  atan_saturation(
-		  inStream,
-		  outStream,
-  	      atan_lut_steep_3,
-		  1);
+  while( !inStream.empty() )
+  {
+	  atan_saturation(
+			  inStream,
+			  outStream,
+	  	      atan_lut_steep_3,
+			  1);
+
+  }
 
   printf("\n Reading output stream..\n");
 
-  fp=fopen("../../../../../../../utils/raw_data/saturation_lut_3_out.dat","w");
+  fp=fopen("../../../../../../../utils/raw_data/atan_saturation_C_sim.dat","w");
 
   if( fp == NULL)
   {

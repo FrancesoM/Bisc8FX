@@ -16,10 +16,11 @@ def sat_16b_signed(x,steep):
 N = 4
 LUTs = []
 
+plt.figure()
 for sig in range(N):
     LUT = np.zeros((1<<16),dtype=float)
     for i in range(LUT.shape[0]):
-        LUT[i] = sat_16b_signed( i - (1<<15) , sig)
+        LUT[i] = sat_16b_signed( i - (1<<15) , sig/5)
         
     #rescale such that it's between -32k and +32k
     LUT = (1<<16)*LUT/(np.max(LUT)-np.min(LUT))
@@ -47,3 +48,4 @@ for i in range(N):
     # Create the .COE file for BRAM initialization from vivado
     
     io_helpers.wcoe_file(LUTs[i],".",fname,pack_elements=1)
+    io_helpers.write_decimal(".", fname+".dat", LUTs[i])

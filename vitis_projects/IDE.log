@@ -1,0 +1,824 @@
+21:16:56 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\temp_xsdb_launch_script.tcl
+21:16:58 INFO  : Registering command handlers for Vitis TCF services
+21:16:58 INFO  : Platform repository initialization has completed.
+21:17:02 INFO  : XSCT server has started successfully.
+21:17:02 INFO  : plnx-install-location is set to ''
+21:17:02 INFO  : Successfully done setting XSCT server connection channel  
+21:17:02 INFO  : Successfully done query RDI_DATADIR 
+21:17:02 INFO  : Successfully done setting workspace for the tool. 
+21:18:07 INFO  : Result from executing command 'getProjects': bisc8_platform
+21:18:07 INFO  : Result from executing command 'getPlatforms': 
+21:21:00 INFO  : Result from executing command 'getProjects': bisc8_platform
+21:21:00 INFO  : Result from executing command 'getPlatforms': bisc8_platform|C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/bisc8_platform.xpfm
+21:23:41 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+21:27:50 INFO  : Result from executing command 'removePlatformRepo': 
+21:29:23 INFO  : Result from executing command 'getProjects': bisc8_platform
+21:29:23 INFO  : Result from executing command 'getPlatforms': 
+21:29:24 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+21:46:05 INFO  : Result from executing command 'removePlatformRepo': 
+21:49:38 INFO  : Result from executing command 'getProjects': bisc8_platform
+21:49:38 INFO  : Result from executing command 'getPlatforms': 
+21:49:38 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+21:56:15 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+21:57:56 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+22:01:23 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+22:02:51 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+22:03:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:03:31 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+22:03:31 INFO  : 'jtag frequency' command is executed.
+22:03:31 INFO  : Context for 'APU' is selected.
+22:03:31 INFO  : System reset is completed.
+22:03:34 INFO  : 'after 3000' command is executed.
+22:03:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+22:03:36 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit"
+22:03:36 INFO  : Context for 'APU' is selected.
+22:03:37 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa'.
+22:03:37 INFO  : 'configparams force-mem-access 1' command is executed.
+22:03:37 INFO  : Context for 'APU' is selected.
+22:03:37 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl' is done.
+22:03:38 INFO  : 'ps7_init' command is executed.
+22:03:38 INFO  : 'ps7_post_config' command is executed.
+22:03:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:03:46 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:03:46 INFO  : 'configparams force-mem-access 0' command is executed.
+22:03:46 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:03:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:03:47 INFO  : 'con' command is executed.
+22:03:47 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:03:47 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl_system\_ide\scripts\debugger_bisc8_ctrl-default.tcl'
+22:06:31 INFO  : Disconnected from the channel tcfchan#10.
+22:06:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:06:33 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+22:06:33 INFO  : 'jtag frequency' command is executed.
+22:06:33 INFO  : Context for 'APU' is selected.
+22:06:33 INFO  : System reset is completed.
+22:06:36 INFO  : 'after 3000' command is executed.
+22:06:36 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+22:06:39 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit"
+22:06:39 INFO  : Context for 'APU' is selected.
+22:06:39 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa'.
+22:06:39 INFO  : 'configparams force-mem-access 1' command is executed.
+22:06:39 INFO  : Context for 'APU' is selected.
+22:06:39 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl' is done.
+22:06:40 INFO  : 'ps7_init' command is executed.
+22:06:40 INFO  : 'ps7_post_config' command is executed.
+22:06:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:06:49 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:06:49 INFO  : 'configparams force-mem-access 0' command is executed.
+22:06:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:06:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:06:49 INFO  : 'con' command is executed.
+22:06:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:06:49 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl_system\_ide\scripts\debugger_bisc8_ctrl-default.tcl'
+22:08:00 INFO  : Disconnected from the channel tcfchan#11.
+22:08:02 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:08:02 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+22:08:02 INFO  : 'jtag frequency' command is executed.
+22:08:02 INFO  : Context for 'APU' is selected.
+22:08:02 INFO  : System reset is completed.
+22:08:05 INFO  : 'after 3000' command is executed.
+22:08:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+22:08:08 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit"
+22:08:08 INFO  : Context for 'APU' is selected.
+22:08:08 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa'.
+22:08:08 INFO  : 'configparams force-mem-access 1' command is executed.
+22:08:08 INFO  : Context for 'APU' is selected.
+22:08:08 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl' is done.
+22:08:09 INFO  : 'ps7_init' command is executed.
+22:08:09 INFO  : 'ps7_post_config' command is executed.
+22:08:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:08:18 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:08:18 INFO  : 'configparams force-mem-access 0' command is executed.
+22:08:18 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:08:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:08:18 INFO  : 'con' command is executed.
+22:08:18 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:08:18 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl_system\_ide\scripts\debugger_bisc8_ctrl-default.tcl'
+22:40:43 INFO  : Result from executing command 'removePlatformRepo': 
+22:42:08 INFO  : Hardware specification for platform project 'bisc8_platform' is updated.
+22:45:02 INFO  : Result from executing command 'getProjects': bisc8_platform
+22:45:02 INFO  : Result from executing command 'getPlatforms': 
+22:45:03 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+22:45:18 INFO  : The hardware specification used by project 'bisc8_ctrl' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+22:45:18 INFO  : The file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl\_ide\bitstream\top_wrapper.bit' stored in project is removed.
+22:45:18 INFO  : The updated bitstream files are copied from platform to folder 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl\_ide\bitstream' in project 'bisc8_ctrl'.
+22:45:18 INFO  : The file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl\_ide\psinit\ps7_init.tcl' stored in project is removed.
+22:45:32 INFO  : The updated ps init files are copied from platform to folder 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl\_ide\psinit' in project 'bisc8_ctrl'.
+22:46:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:46:14 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+22:46:14 INFO  : 'jtag frequency' command is executed.
+22:46:14 INFO  : Context for 'APU' is selected.
+22:46:14 INFO  : System reset is completed.
+22:46:17 INFO  : 'after 3000' command is executed.
+22:46:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+22:46:19 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit"
+22:46:20 INFO  : Context for 'APU' is selected.
+22:46:20 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa'.
+22:46:20 INFO  : 'configparams force-mem-access 1' command is executed.
+22:46:20 INFO  : Context for 'APU' is selected.
+22:46:20 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl' is done.
+22:46:21 INFO  : 'ps7_init' command is executed.
+22:46:21 INFO  : 'ps7_post_config' command is executed.
+22:46:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:46:30 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:46:30 INFO  : 'configparams force-mem-access 0' command is executed.
+22:46:30 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:46:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:46:30 INFO  : 'con' command is executed.
+22:46:30 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:46:30 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl_system\_ide\scripts\debugger_bisc8_ctrl-default.tcl'
+22:47:15 INFO  : Disconnected from the channel tcfchan#12.
+22:47:17 WARN  : channel "tcfchan#12" closed
+22:47:19 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:47:19 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+22:47:19 INFO  : 'jtag frequency' command is executed.
+22:47:19 INFO  : Context for 'APU' is selected.
+22:47:20 INFO  : System reset is completed.
+22:47:23 INFO  : 'after 3000' command is executed.
+22:47:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+22:47:25 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit"
+22:47:25 INFO  : Context for 'APU' is selected.
+22:47:25 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa'.
+22:47:25 INFO  : 'configparams force-mem-access 1' command is executed.
+22:47:25 INFO  : Context for 'APU' is selected.
+22:47:25 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl' is done.
+22:47:26 INFO  : 'ps7_init' command is executed.
+22:47:26 INFO  : 'ps7_post_config' command is executed.
+22:47:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:47:35 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:47:35 INFO  : 'configparams force-mem-access 0' command is executed.
+22:47:35 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:47:35 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:47:35 INFO  : 'con' command is executed.
+22:47:35 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:47:35 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl_system\_ide\scripts\debugger_bisc8_ctrl-default.tcl'
+08:30:04 INFO  : Result from executing command 'removePlatformRepo': 
+08:31:03 INFO  : Hardware specification for platform project 'bisc8_platform' is updated.
+08:40:24 INFO  : Result from executing command 'getProjects': bisc8_platform
+08:40:24 ERROR : Failed to openhw "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/hw/top_wrapper.xsa"
+Reason: ERROR: [Common 17-39] 'hsi::open_hw_design' failed due to earlier errors.
+
+08:40:24 INFO  : Result from executing command 'getPlatforms': 
+08:40:25 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+08:41:11 INFO  : The hardware specification used by project 'bisc8_ctrl' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+08:41:11 INFO  : The file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl\_ide\bitstream\top_wrapper.bit' stored in project is removed.
+08:41:11 INFO  : The updated bitstream files are copied from platform to folder 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl\_ide\bitstream' in project 'bisc8_ctrl'.
+08:41:11 INFO  : The file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl\_ide\psinit\ps7_init.tcl' stored in project is removed.
+08:41:21 INFO  : The updated ps init files are copied from platform to folder 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl\_ide\psinit' in project 'bisc8_ctrl'.
+08:48:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:48:08 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+08:48:08 INFO  : 'jtag frequency' command is executed.
+08:48:08 INFO  : Context for 'APU' is selected.
+08:48:08 INFO  : System reset is completed.
+08:48:11 INFO  : 'after 3000' command is executed.
+08:48:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+08:48:13 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit"
+08:48:13 INFO  : Context for 'APU' is selected.
+08:48:14 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa'.
+08:48:14 INFO  : 'configparams force-mem-access 1' command is executed.
+08:48:14 INFO  : Context for 'APU' is selected.
+08:48:14 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl' is done.
+08:48:14 INFO  : 'ps7_init' command is executed.
+08:48:15 INFO  : 'ps7_post_config' command is executed.
+08:48:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:48:24 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:48:24 INFO  : 'configparams force-mem-access 0' command is executed.
+08:48:24 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+08:48:24 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:48:24 INFO  : 'con' command is executed.
+08:48:24 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+08:48:24 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl_system\_ide\scripts\debugger_bisc8_ctrl-default.tcl'
+08:48:27 INFO  : Disconnected from the channel tcfchan#16.
+08:48:55 WARN  : channel "tcfchan#16" closed
+08:48:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:48:56 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+08:48:56 INFO  : 'jtag frequency' command is executed.
+08:48:56 INFO  : Context for 'APU' is selected.
+08:48:56 INFO  : System reset is completed.
+08:48:59 INFO  : 'after 3000' command is executed.
+08:48:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+08:49:01 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit"
+08:49:02 INFO  : Context for 'APU' is selected.
+08:49:06 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa'.
+08:49:06 INFO  : 'configparams force-mem-access 1' command is executed.
+08:49:06 INFO  : Context for 'APU' is selected.
+08:49:06 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl' is done.
+08:49:07 INFO  : 'ps7_init' command is executed.
+08:49:07 INFO  : 'ps7_post_config' command is executed.
+08:49:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:49:16 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:49:16 INFO  : 'configparams force-mem-access 0' command is executed.
+08:49:16 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+08:49:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:49:16 INFO  : 'con' command is executed.
+08:49:16 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+08:49:16 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl_system\_ide\scripts\debugger_bisc8_ctrl-default.tcl'
+08:49:39 INFO  : Disconnected from the channel tcfchan#20.
+08:50:08 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+08:50:39 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+08:50:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:50:50 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+08:50:50 INFO  : 'jtag frequency' command is executed.
+08:50:50 INFO  : Context for 'APU' is selected.
+08:50:50 INFO  : System reset is completed.
+08:50:53 INFO  : 'after 3000' command is executed.
+08:50:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+08:50:55 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit"
+08:50:55 INFO  : Context for 'APU' is selected.
+08:50:56 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa'.
+08:50:56 INFO  : 'configparams force-mem-access 1' command is executed.
+08:50:56 INFO  : Context for 'APU' is selected.
+08:50:56 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl' is done.
+08:50:56 INFO  : 'ps7_init' command is executed.
+08:50:56 INFO  : 'ps7_post_config' command is executed.
+08:50:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:51:05 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:51:05 INFO  : 'configparams force-mem-access 0' command is executed.
+08:51:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+08:51:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:51:05 INFO  : 'con' command is executed.
+08:51:05 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+08:51:05 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl_system\_ide\scripts\debugger_bisc8_ctrl-default.tcl'
+08:53:48 INFO  : Disconnected from the channel tcfchan#21.
+08:56:55 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:56:56 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+08:56:56 INFO  : 'jtag frequency' command is executed.
+08:56:56 INFO  : Context for 'APU' is selected.
+08:56:56 INFO  : System reset is completed.
+08:56:59 INFO  : 'after 3000' command is executed.
+08:56:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+08:57:01 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit"
+08:57:01 INFO  : Context for 'APU' is selected.
+08:57:07 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa'.
+08:57:07 INFO  : 'configparams force-mem-access 1' command is executed.
+08:57:07 INFO  : Context for 'APU' is selected.
+08:57:07 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl' is done.
+08:57:07 INFO  : 'ps7_init' command is executed.
+08:57:07 INFO  : 'ps7_post_config' command is executed.
+08:57:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:57:16 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+08:57:16 INFO  : 'configparams force-mem-access 0' command is executed.
+08:57:16 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/export/bisc8_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl/Debug/bisc8_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+08:57:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+08:57:16 INFO  : 'con' command is executed.
+08:57:16 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+08:57:16 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_ctrl_system\_ide\scripts\debugger_bisc8_ctrl-default.tcl'
+09:02:14 ERROR : Failed to openhw "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_platform/hw/top_wrapper.xsa"
+Reason: ERROR: [Common 17-39] 'hsi::open_hw_design' failed due to earlier errors.
+
+09:02:26 INFO  : Result from executing command 'removePlatformRepo': 
+09:04:23 INFO  : Result from executing command 'getProjects': bisc8_ctrl_platform
+09:04:23 INFO  : Result from executing command 'getPlatforms': 
+09:08:19 INFO  : Result from executing command 'getProjects': bisc8_ctrl_platform
+09:08:19 INFO  : Result from executing command 'getPlatforms': bisc8_ctrl_platform|C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/bisc8_ctrl_platform.xpfm
+09:08:21 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_ctrl'...
+09:08:21 ERROR : Failed to get platform details for the project 'bisc8_ctrl'. Cannot sync application flags.
+09:10:18 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_effects_ctrl'...
+09:12:32 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_effects_ctrl'...
+09:13:18 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+09:13:18 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+09:13:18 INFO  : 'jtag frequency' command is executed.
+09:13:19 INFO  : Context for 'APU' is selected.
+09:13:19 INFO  : System reset is completed.
+09:13:22 INFO  : 'after 3000' command is executed.
+09:13:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+09:13:25 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper.bit"
+09:13:25 INFO  : Context for 'APU' is selected.
+09:13:26 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper.xsa'.
+09:13:26 INFO  : 'configparams force-mem-access 1' command is executed.
+09:13:26 INFO  : Context for 'APU' is selected.
+09:13:26 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl' is done.
+09:13:27 INFO  : 'ps7_init' command is executed.
+09:13:27 INFO  : 'ps7_post_config' command is executed.
+09:13:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+09:13:27 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+09:13:27 INFO  : 'configparams force-mem-access 0' command is executed.
+09:13:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+09:13:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+09:13:28 INFO  : 'con' command is executed.
+09:13:28 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+09:13:28 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl_system\_ide\scripts\debugger_bisc8_effects_ctrl-default.tcl'
+09:14:00 INFO  : Disconnected from the channel tcfchan#22.
+09:14:04 WARN  : channel "tcfchan#22" closed
+09:14:24 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_effects_ctrl'...
+09:14:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+09:14:44 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+09:14:44 INFO  : 'jtag frequency' command is executed.
+09:14:44 INFO  : Context for 'APU' is selected.
+09:14:44 INFO  : System reset is completed.
+09:14:47 INFO  : 'after 3000' command is executed.
+09:14:47 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+09:14:50 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper.bit"
+09:14:50 INFO  : Context for 'APU' is selected.
+09:14:50 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper.xsa'.
+09:14:50 INFO  : 'configparams force-mem-access 1' command is executed.
+09:14:50 INFO  : Context for 'APU' is selected.
+09:14:50 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl' is done.
+09:14:51 INFO  : 'ps7_init' command is executed.
+09:14:51 INFO  : 'ps7_post_config' command is executed.
+09:14:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+09:14:51 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+09:14:51 INFO  : 'configparams force-mem-access 0' command is executed.
+09:14:51 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+09:14:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+09:14:52 INFO  : 'con' command is executed.
+09:14:52 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+09:14:52 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl_system\_ide\scripts\debugger_bisc8_effects_ctrl-default.tcl'
+09:15:21 INFO  : Disconnected from the channel tcfchan#28.
+09:17:15 INFO  : Result from executing command 'removePlatformRepo': 
+09:20:01 INFO  : Result from executing command 'getProjects': bisc8_ctrl_platform
+09:20:01 INFO  : Result from executing command 'getPlatforms': 
+09:20:02 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_effects_ctrl'...
+09:30:37 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+09:30:37 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+09:30:37 INFO  : 'jtag frequency' command is executed.
+09:30:37 INFO  : Context for 'APU' is selected.
+09:30:37 INFO  : System reset is completed.
+09:30:40 INFO  : 'after 3000' command is executed.
+09:30:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+09:30:42 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper.bit"
+09:30:43 INFO  : Context for 'APU' is selected.
+09:30:43 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper.xsa'.
+09:30:43 INFO  : 'configparams force-mem-access 1' command is executed.
+09:30:43 INFO  : Context for 'APU' is selected.
+09:30:43 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl' is done.
+09:30:43 INFO  : 'ps7_init' command is executed.
+09:30:43 INFO  : 'ps7_post_config' command is executed.
+09:30:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+09:30:52 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+09:30:52 INFO  : 'configparams force-mem-access 0' command is executed.
+09:30:52 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+09:30:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+09:30:52 INFO  : 'con' command is executed.
+09:30:52 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+09:30:52 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl_system\_ide\scripts\debugger_bisc8_effects_ctrl-default.tcl'
+13:18:44 INFO  : Disconnected from the channel tcfchan#31.
+13:18:52 INFO  : Result from executing command 'removePlatformRepo': 
+13:21:12 INFO  : Hardware specification for platform project 'bisc8_ctrl_platform' is updated.
+13:21:18 INFO  : Result from executing command 'getProjects': RemoteSystemsTempFiles;bisc8_ctrl_platform;bisc8_effects_ctrl;bisc8_effects_ctrl_system
+13:21:18 WARN  : Failed to closehw "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/hw/top_wrapper.xsa"
+Reason: C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/hw/top_wrapper.xsa is not available in the current workspace
+use 'getprojects' command to see list of available projects in current workspace
+13:21:18 INFO  : Result from executing command 'getProjects': RemoteSystemsTempFiles;bisc8_ctrl_platform;bisc8_effects_ctrl;bisc8_effects_ctrl_system
+13:21:18 ERROR : Failed to openhw "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/hw/top_wrapper.xsa"
+Reason: C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/hw/top_wrapper.xsa is not available in the current workspace
+use 'getprojects' command to see list of available projects in current workspace
+13:24:11 INFO  : Result from executing command 'getProjects': bisc8_ctrl_platform
+13:24:11 INFO  : Result from executing command 'getPlatforms': 
+13:26:04 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_effects_ctrl'...
+13:26:18 INFO  : The hardware specification used by project 'bisc8_effects_ctrl' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+13:26:18 INFO  : The file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl\_ide\bitstream\top_wrapper.bit' stored in project is removed.
+13:26:18 INFO  : The updated bitstream files are copied from platform to folder 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl\_ide\bitstream' in project 'bisc8_effects_ctrl'.
+13:26:18 INFO  : The file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl\_ide\psinit\ps7_init.tcl' stored in project is removed.
+13:26:27 INFO  : The updated ps init files are copied from platform to folder 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl\_ide\psinit' in project 'bisc8_effects_ctrl'.
+13:27:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:27:01 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+13:27:01 INFO  : 'jtag frequency' command is executed.
+13:27:01 INFO  : Context for 'APU' is selected.
+13:27:01 INFO  : System reset is completed.
+13:27:05 INFO  : 'after 3000' command is executed.
+13:27:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+13:27:07 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper_dma.bit"
+13:27:07 INFO  : Context for 'APU' is selected.
+13:27:07 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper_dma.xsa'.
+13:27:07 INFO  : 'configparams force-mem-access 1' command is executed.
+13:27:07 INFO  : Context for 'APU' is selected.
+13:27:07 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl' is done.
+13:27:08 INFO  : 'ps7_init' command is executed.
+13:27:08 INFO  : 'ps7_post_config' command is executed.
+13:27:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:27:17 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:27:17 INFO  : 'configparams force-mem-access 0' command is executed.
+13:27:17 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper_dma.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper_dma.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:27:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:27:18 INFO  : 'con' command is executed.
+13:27:18 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:27:18 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl_system\_ide\scripts\debugger_bisc8_effects_ctrl-default.tcl'
+13:41:57 INFO  : Disconnected from the channel tcfchan#35.
+13:42:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:42:01 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+13:42:01 INFO  : 'jtag frequency' command is executed.
+13:42:01 INFO  : Context for 'APU' is selected.
+13:42:01 INFO  : System reset is completed.
+13:42:04 INFO  : 'after 3000' command is executed.
+13:42:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+13:42:07 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper_dma.bit"
+13:42:07 INFO  : Context for 'APU' is selected.
+13:42:07 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper_dma.xsa'.
+13:42:07 INFO  : 'configparams force-mem-access 1' command is executed.
+13:42:07 INFO  : Context for 'APU' is selected.
+13:42:07 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl' is done.
+13:42:08 INFO  : 'ps7_init' command is executed.
+13:42:08 INFO  : 'ps7_post_config' command is executed.
+13:42:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:42:17 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:42:17 INFO  : 'configparams force-mem-access 0' command is executed.
+13:42:17 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper_dma.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper_dma.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:42:17 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:42:17 INFO  : 'con' command is executed.
+13:42:17 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:42:17 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl_system\_ide\scripts\debugger_bisc8_effects_ctrl-default.tcl'
+14:21:54 INFO  : Disconnected from the channel tcfchan#36.
+14:22:44 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_effects_ctrl'...
+14:25:00 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_effects_ctrl'...
+14:25:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:25:09 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+14:25:09 INFO  : 'jtag frequency' command is executed.
+14:25:09 INFO  : Context for 'APU' is selected.
+14:25:09 INFO  : System reset is completed.
+14:25:12 INFO  : 'after 3000' command is executed.
+14:25:12 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+14:25:15 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper_dma.bit"
+14:25:15 INFO  : Context for 'APU' is selected.
+14:25:15 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper_dma.xsa'.
+14:25:15 INFO  : 'configparams force-mem-access 1' command is executed.
+14:25:15 INFO  : Context for 'APU' is selected.
+14:25:15 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl' is done.
+14:25:16 INFO  : 'ps7_init' command is executed.
+14:25:16 INFO  : 'ps7_post_config' command is executed.
+14:25:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:25:25 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:25:25 INFO  : 'configparams force-mem-access 0' command is executed.
+14:25:25 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper_dma.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper_dma.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:25:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:25:25 INFO  : 'con' command is executed.
+14:25:25 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:25:25 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl_system\_ide\scripts\debugger_bisc8_effects_ctrl-default.tcl'
+14:31:43 INFO  : Checking for BSP changes to sync application flags for project 'bisc8_effects_ctrl'...
+14:32:16 INFO  : Disconnected from the channel tcfchan#37.
+14:32:18 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:32:18 INFO  : Jtag cable 'Xilinx PYNQ-Z1 003017A40D21A' is selected.
+14:32:18 INFO  : 'jtag frequency' command is executed.
+14:32:18 INFO  : Context for 'APU' is selected.
+14:32:18 INFO  : System reset is completed.
+14:32:21 INFO  : 'after 3000' command is executed.
+14:32:21 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}' command is executed.
+14:32:24 INFO  : Device configured successfully with "C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper_dma.bit"
+14:32:24 INFO  : Context for 'APU' is selected.
+14:32:24 INFO  : Hardware design and registers information is loaded from 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper_dma.xsa'.
+14:32:24 INFO  : 'configparams force-mem-access 1' command is executed.
+14:32:24 INFO  : Context for 'APU' is selected.
+14:32:24 INFO  : Sourcing of 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl' is done.
+14:32:25 INFO  : 'ps7_init' command is executed.
+14:32:25 INFO  : 'ps7_post_config' command is executed.
+14:32:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:32:34 INFO  : The application 'C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:32:34 INFO  : 'configparams force-mem-access 0' command is executed.
+14:32:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Xilinx PYNQ-Z1 003017A40D21A" && level==0 && jtag_device_ctx=="jsn-Xilinx PYNQ-Z1-003017A40D21A-23727093-0"}
+fpga -file C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/bitstream/top_wrapper_dma.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_ctrl_platform/export/bisc8_ctrl_platform/hw/top_wrapper_dma.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/Users/francesco.maio/Desktop/Bisc8FX/vitis_projects/bisc8_effects_ctrl/Debug/bisc8_effects_ctrl.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:32:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:32:34 INFO  : 'con' command is executed.
+14:32:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:32:34 INFO  : Launch script is exported to file 'C:\Users\francesco.maio\Desktop\Bisc8FX\vitis_projects\bisc8_effects_ctrl_system\_ide\scripts\debugger_bisc8_effects_ctrl-default.tcl'
+09:29:23 INFO  : Disconnected from the channel tcfchan#38.
